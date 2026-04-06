@@ -143,6 +143,5 @@ app.post("/chat", async (req, res) => {
   res.end();
 });
 
-app.listen(3000, () => {
-  console.log("🍕 Pizza Palace bot running at http://localhost:3000");
-});
+// export the app for Vercel serverless
+export default app;
