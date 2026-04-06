@@ -70,6 +70,7 @@
 import express from "express";
 import Groq from "groq-sdk";
 import dotenv from "dotenv";
+import path from "path";
 
 dotenv.config();
 
@@ -105,6 +106,11 @@ YOUR RULES:
 7. Use emojis occasionally
 8. Keep replies short — max 3-4 lines
 `;
+
+// serve the HTML file for the root route
+app.get("/", (req, res) => {
+  res.sendFile(path.join(process.cwd(), "public", "index.html"));
+});
 
 // ✅ NEW: streaming endpoint
 app.post("/chat", async (req, res) => {
